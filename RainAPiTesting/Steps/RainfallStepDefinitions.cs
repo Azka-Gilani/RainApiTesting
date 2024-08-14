@@ -37,7 +37,7 @@ namespace RainApiTesting.Steps
         public async System.Threading.Tasks.Task WhenTheUserSendsRequestForIndividaualStation()
         {
             ApiRequestHelper req = new ApiRequestHelper();
-            response = await req.GetRainfallReading("http://environment.data.gov.uk/flood-monitoring/id/stations?", createApiRequest);
+            response = await req.GetRainfallReading(Constants.UrlRainfallMeasurement, createApiRequest);
         }
 
         [Then(@"Api result is returned")]
@@ -63,7 +63,7 @@ namespace RainApiTesting.Steps
         public async System.Threading.Tasks.Task WhenTheUserSendsRequestForSpecificDate()
         {
             ApiRequestHelper req = new ApiRequestHelper();
-            response = await req.GetRainfallReading("http://environment.data.gov.uk/flood-monitoring/data/readings?", createApiRequest);
+            response = await req.GetRainfallReading(Constants.UrlFloodReadings, createApiRequest);
 
         }
     }

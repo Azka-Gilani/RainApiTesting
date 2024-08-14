@@ -25,6 +25,10 @@ namespace RainApiTesting.Helpers
                 request.AddParameter("search", createApiRequest.Station);
             if (createApiRequest.Limit != null)
                 request.AddParameter("_limit", createApiRequest.Limit);
+            if (createApiRequest.StationReference != null)
+                request.AddParameter("stationReference", createApiRequest.StationReference);
+            if (createApiRequest.StartDate != null)
+                request.AddParameter("startdate", createApiRequest.StartDate);
             request.AddHeaders(new Dictionary<string, string>
             {
                 { "Accept", "application/json" },

@@ -43,7 +43,28 @@ namespace RainApiTesting.Steps
         [Then(@"Api result is returned")]
         public void ThenApiResultIsReturned()
         {
-            Assert.AreEqual(response.StatusCode, System.Net.HttpStatusCode.OK);
+            Assert.That(response.StatusCode, Is.EqualTo(System.Net.HttpStatusCode.OK));
+        }
+
+        [Given(@"The user want to have rainfall measurement of a station with reference (.*)")]
+        public void GivenTheUserWantToHaveRainfallMeasurementOfAStationWithReference(string station)
+        {
+            createApiRequest.StationReference = station;
+        }
+
+        [When(@"The user sets date as today")]
+        public void WhenTheUserSetsDateAsToday()
+        {
+            DateTime today = DateTime.Now;
+            createApiRequest.StartDate = $"{today.Year}-{today.Month:00}-{today.Day:00}";
+        }
+
+        [When(@"The user sends request for specific date")]
+        public async System.Threading.Tasks.Task WhenTheUserSendsRequestForSpecificDate()
+        {
+            ApiRequestHelper req = new ApiRequestHelper();
+            response = await req.GetRainfallReading("http://environment.data.gov.uk/flood-monitoring/data/readings?", createApiRequest);
+
         }
     }
 }

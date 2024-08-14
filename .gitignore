@@ -2,3 +2,4 @@ RainAPiTesting/bin/Debug/net6.0/ru/Microsoft.TestPlatform.CommunicationUtilities
 RainAPiTesting/bin/Debug/
 .vs/
 RainAPiTesting/obj/
+RainAPiTesting/Features/Rainfall.feature.cs
